@@ -58,10 +58,10 @@
 
     <div class="absolute inset-0 bg-black/50"></div>
 
-    <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-6 pt-5 sm:pt-7">
-      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 relative">
+    <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-6 pt-10 sm:pt-7">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 relative h-[60px]">
 
-        <div class="flex items-center gap-3 shrink-0 z-50">
+        <div class="flex items-center gap-3 shrink-0 z-50 self-center">
           <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/10 shadow-lg">
             ✦
           </div>
@@ -91,8 +91,7 @@
           </a>
         </div>
 
-      </div>
-    <button onclick="toggleMobileMenu()" class="xl:hidden ml-auto w-12 h-12 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xl flex items-center justify-center text-white z-50 shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+      <button onclick="toggleMobileMenu()" class="xl:hidden ml-auto flex-shrink-0 w-12 h-12 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xl flex items-center justify-center text-white z-[70] shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -558,8 +557,8 @@
     </div>
   </section>
 
-  <div id="storyModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
-    <div class="bg-[#120d09] border border-white/10 rounded-[28px] sm:rounded-[34px] p-5 sm:p-10 max-w-2xl w-full relative overflow-hidden my-10">
+  <div id="storyModal" class="modal fixed inset-0 z-[999] items-start sm:items-center justify-center bg-black/70 backdrop-blur-md p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-[#120d09] border border-white/10 rounded-[28px] sm:rounded-[34px] p-5 sm:p-10 max-w-2xl w-full relative overflow-visible my-16 sm:my-10">
 
       <img
         src="https://media.discordapp.net/attachments/1005757707652960256/1505880164830154912/content.png?ex=6a0c3bb1&is=6a0aea31&hm=e6825c7239a4a9f2d99e137d6d29bb6ee545533f3efe75454faa07cdf82137a6&=&format=webp&quality=lossless&width=818&height=545"
@@ -568,7 +567,7 @@
 
       <div class="relative z-10">
 
-        <button onclick="closeStoryModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 sm:w-10 sm:h-10 rounded-2xl bg-white/10 hover:bg-white/20 transition z-50 flex items-center justify-center text-lg backdrop-blur-xl border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
+        <button onclick="closeStoryModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-12 h-12 sm:w-10 sm:h-10 rounded-2xl bg-[#120d09]/95 hover:bg-white/20 transition z-[1000] flex items-center justify-center text-xl backdrop-blur-xl border border-white/10 shadow-[0_10px_25px_rgba(0,0,0,0.35)]">
           ✕
         </button>
 
