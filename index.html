@@ -58,10 +58,10 @@
 
     <div class="absolute inset-0 bg-black/50"></div>
 
-    <header class="absolute top-0 left-0 w-full z-50 px-6 pt-7">
-      <div class="max-w-7xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-6">
+    <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-6 pt-5 sm:pt-7">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
-        <div class="flex items-center gap-3 shrink-0">
+        <div class="flex items-center gap-3 shrink-0 z-50">
           <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/10 shadow-lg">
             ✦
           </div>
@@ -72,7 +72,7 @@
           </div>
         </div>
 
-        <div class="hidden lg:flex justify-center">
+        <div class="hidden xl:flex justify-center">
           <nav class="flex items-center gap-2 bg-[#120d09]/70 border border-white/10 rounded-full px-3 py-3 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
             <a href="#" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Beranda</a>
             <a href="#about" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Tentang</a>
@@ -82,7 +82,7 @@
           </nav>
         </div>
 
-        <div class="hidden lg:flex justify-end">
+        <div class="hidden xl:flex justify-end">
           <a href="https://wa.me/6281234567890" target="_blank" class="inline-flex items-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] text-white px-6 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(201,150,77,0.35)] hover:-translate-y-1 transition duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.52 3.48A11.79 11.79 0 0012.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.8 11.8 0 005.74 1.46h.01c6.57 0 11.91-5.34 11.91-11.91a11.8 11.8 0 00-3.47-8.41zM12.08 21.3a9.37 9.37 0 01-4.77-1.3l-.34-.2-3.76.99 1-3.67-.22-.37a9.38 9.38 0 01-1.45-5.01c0-5.19 4.23-9.42 9.43-9.42a9.36 9.36 0 016.66 2.76 9.35 9.35 0 012.76 6.66c0 5.2-4.23 9.43-9.41 9.43zm5.17-7.03c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.63.14-.18.28-.72.9-.88 1.08-.16.18-.32.21-.6.07-.28-.14-1.17-.43-2.22-1.36-.82-.73-1.37-1.62-1.53-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.18-.28.28-.46.1-.18.05-.35-.02-.49-.07-.14-.63-1.53-.86-2.09-.23-.55-.47-.48-.63-.49h-.54c-.18 0-.49.07-.74.35-.26.28-.98.96-.98 2.33s1 2.7 1.14 2.88c.14.18 1.95 2.98 4.73 4.18.66.28 1.18.45 1.58.57.66.21 1.27.18 1.75.11.53-.08 1.64-.67 1.87-1.31.23-.65.23-1.2.16-1.31-.07-.12-.25-.19-.53-.33z"/>
@@ -92,33 +92,54 @@
         </div>
 
       </div>
+    <button onclick="toggleMobileMenu()" class="xl:hidden w-12 h-12 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-xl flex items-center justify-center text-white z-50 shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+      </div>
+
+      <div id="mobileMenu" class="hidden xl:hidden mt-5 rounded-[28px] border border-white/10 bg-[#120d09]/95 backdrop-blur-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+        <nav class="flex flex-col gap-2">
+          <a href="#" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl text-white/80 hover:bg-white/10 transition">Beranda</a>
+          <a href="#about" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl text-white/80 hover:bg-white/10 transition">Tentang</a>
+          <a href="#products" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl text-white/80 hover:bg-white/10 transition">Produk</a>
+          <a href="#visi-misi" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl text-white/80 hover:bg-white/10 transition">Visi & Misi</a>
+          <a href="#vision" onclick="toggleMobileMenu()" class="px-5 py-4 rounded-2xl text-white/80 hover:bg-white/10 transition">Cerita Kami</a>
+
+          <a href="https://wa.me/6281234567890" target="_blank" class="mt-3 inline-flex items-center justify-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] transition px-6 py-4 rounded-2xl font-semibold shadow-[0_10px_30px_rgba(201,150,77,0.35)]">
+            <span>Order via WhatsApp</span>
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-36 lg:pt-40">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-36 sm:pt-40 lg:pt-44">
       <div class="max-w-2xl">
 
         <div class="inline-flex items-center gap-3 border border-white/20 bg-white/5 px-6 py-3 rounded-full text-sm mb-8">
           ✦ PRODUK LOKAL • KUALITAS DUNIA
         </div>
 
-        <h1 class="text-6xl md:text-8xl font-black leading-[0.95] mb-8">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-black leading-[0.95] mb-8 tracking-[-2px]">
           Dari Manggarai Raya
           <span class="block text-white/80">Untuk Dunia</span>
         </h1>
 
-        <p class="text-lg text-white/80 leading-9 mb-12 max-w-2xl">
+        <p class="text-base sm:text-lg text-white/80 leading-8 sm:leading-9 mb-12 max-w-2xl">
           Kopi Manggarai Highland, Flores Palm Sugar, Tenun Manggarai dan produk UMKM terbaik dari Flores.
         </p>
 
-        <div class="flex flex-wrap gap-5 mb-14">
-          <a href="#products" class="inline-flex items-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold shadow-xl hover:-translate-y-1 duration-300">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5 mb-12 sm:mb-14">
+          <a href="#products" class="inline-flex w-full sm:w-auto justify-center items-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold shadow-xl hover:-translate-y-1 duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1 5h12m-9 0a1 1 0 100 2 1 1 0 000-2zm8 0a1 1 0 100 2 1 1 0 000-2"/>
             </svg>
             <span>Belanja Sekarang</span>
           </a>
 
-          <button onclick="openModal()" class="inline-flex items-center gap-3 border border-white/20 bg-white/5 hover:bg-white/10 transition px-7 py-4 rounded-xl hover:-translate-y-1 duration-300">
+          <button onclick="openModal()" class="inline-flex w-full sm:w-auto justify-center items-center gap-3 border border-white/20 bg-white/5 hover:bg-white/10 transition px-7 py-4 rounded-xl hover:-translate-y-1 duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L12 3l9 4.5M4.5 8.25V16.5L12 21l7.5-4.5V8.25M12 21V12"/>
             </svg>
@@ -192,8 +213,8 @@
     </div>
   </section>
 
-  <section id="about" class="py-32 px-6 bg-[#fffaf3] text-[#1a120c] overflow-hidden">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+  <section id="about" class="py-24 sm:py-32 px-4 sm:px-6 bg-[#fffaf3] text-[#1a120c] overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 xl:gap-24 items-center">
 
       <div class="relative">
 
@@ -202,7 +223,7 @@
           <div class="relative overflow-hidden rounded-[38px] shadow-[0_25px_70px_rgba(0,0,0,0.12)] group">
             <img
               src="https://media.discordapp.net/attachments/1005757707652960256/1505869699492352012/content.png?ex=6a0c31f2&is=6a0ae072&hm=e447dceb6c187c8a148ccb2872b7f219c2b4c918d98c92e171abdf7a9972e73f&=&format=webp&quality=lossless&width=818&height=545"
-              class="w-full h-[560px] object-cover group-hover:scale-105 transition duration-700"
+              class="w-full h-[320px] sm:h-[560px] object-cover group-hover:scale-105 transition duration-700"
             />
 
             <div class="absolute bottom-0 left-0 right-0 p-7 bg-gradient-to-t from-black/70 to-transparent">
@@ -222,14 +243,14 @@
             <div class="overflow-hidden rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] group">
               <img
                 src="https://media.discordapp.net/attachments/1005757707652960256/1505870166419050526/content.png?ex=6a0c3261&is=6a0ae0e1&hm=db72f7a3ddedbe5a0620c6f4d397903a3407f280fd89b7e5184ec1337a5177f8&=&format=webp&quality=lossless&width=818&height=545"
-                class="w-full h-[270px] object-cover group-hover:scale-105 transition duration-700"
+                class="w-full h-[155px] sm:h-[270px] object-cover group-hover:scale-105 transition duration-700"
               />
             </div>
 
             <div class="overflow-hidden rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] group">
               <img
                 src="https://media.discordapp.net/attachments/1005757707652960256/1505870590764912700/content.png?ex=6a0c32c6&is=6a0ae146&hm=b9a8805990213d4d019bff4d02e3b60af8046c4113a7fc4896cc14c88e83bc8b&=&format=webp&quality=lossless&width=525&height=350"
-                class="w-full h-[270px] object-cover group-hover:scale-105 transition duration-700"
+                class="w-full h-[155px] sm:h-[270px] object-cover group-hover:scale-105 transition duration-700"
               />
             </div>
 
@@ -295,7 +316,7 @@
     </div>
   </section>
 
-  <section id="products" class="py-32 px-6 bg-[#120d09]">
+  <section id="products" class="py-24 sm:py-32 px-4 sm:px-6 bg-[#120d09]">
     <div class="max-w-7xl mx-auto">
 
       <div class="flex items-end justify-between mb-16 flex-wrap gap-5">
@@ -313,10 +334,10 @@
         </button>
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-7">
+      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-7">
 
         <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
-          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876185891213482/content.png?ex=6a0c37fc&is=6a0ae67c&hm=bbb0fc96fd77ad8f5ff4274f26bf0b3390936a832c959d80f4a100036abc1bb8&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876185891213482/content.png?ex=6a0c37fc&is=6a0ae67c&hm=bbb0fc96fd77ad8f5ff4274f26bf0b3390936a832c959d80f4a100036abc1bb8&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[240px] sm:h-[300px] object-cover" />
 
           <div class="p-7">
             <h3 class="text-2xl font-semibold mb-3">Kopi Manggarai Highland</h3>
@@ -326,7 +347,7 @@
         </div>
 
         <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
-          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876746715791480/content.png?ex=6a0c3882&is=6a0ae702&hm=50228130823d785d8001bd63a8d2013249e4da70a0c7cd931e849f183a2935e7&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876746715791480/content.png?ex=6a0c3882&is=6a0ae702&hm=50228130823d785d8001bd63a8d2013249e4da70a0c7cd931e849f183a2935e7&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[240px] sm:h-[300px] object-cover" />
 
           <div class="p-7">
             <h3 class="text-2xl font-semibold mb-3">Flores Palm Sugar</h3>
@@ -336,7 +357,7 @@
         </div>
 
         <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
-          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505877288569405481/content.png?ex=6a0c3903&is=6a0ae783&hm=7ab5f64941c18264250cc3aff22930a844947bd386f02552161be0122fb50e2b&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505877288569405481/content.png?ex=6a0c3903&is=6a0ae783&hm=7ab5f64941c18264250cc3aff22930a844947bd386f02552161be0122fb50e2b&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[240px] sm:h-[300px] object-cover" />
 
           <div class="p-7">
             <h3 class="text-2xl font-semibold mb-3">Madu Hutan Flores</h3>
@@ -346,7 +367,7 @@
         </div>
 
         <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
-          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505878419391385610/content.png?ex=6a0c3a11&is=6a0ae891&hm=0896e93b2d19239a592e87d95f5c0b934e99786c5923369f5f1347855cdb514c&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505878419391385610/content.png?ex=6a0c3a11&is=6a0ae891&hm=0896e93b2d19239a592e87d95f5c0b934e99786c5923369f5f1347855cdb514c&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[240px] sm:h-[300px] object-cover" />
 
           <div class="p-7">
             <h3 class="text-2xl font-semibold mb-3">Kerajinan Anyaman</h3>
@@ -359,7 +380,7 @@
     </div>
   </section>
 
-  <section class="py-28 px-6 bg-[#fffaf3] text-[#1a120c] border-t border-[#ead8bf]">
+  <section class="py-24 sm:py-28 px-4 sm:px-6 bg-[#fffaf3] text-[#1a120c] border-t border-[#ead8bf]">
     <div class="max-w-7xl mx-auto">
 
       <div class="mb-16 text-center">
@@ -409,7 +430,7 @@
     </div>
   </section>
 
-  <section id="visi-misi" class="py-28 px-6 bg-[#fffaf3] text-[#1a120c] border-t border-[#ead8bf] overflow-hidden">
+  <section id="visi-misi" class="py-24 sm:py-28 px-4 sm:px-6 bg-[#fffaf3] text-[#1a120c] border-t border-[#ead8bf] overflow-hidden">
     <div class="max-w-7xl mx-auto">
 
       <div class="text-center mb-20">
@@ -500,7 +521,7 @@
     </div>
   </section>
 
-  <section id="vision" class="relative py-32 px-6 overflow-hidden bg-[#120d09] border-t border-white/10">
+  <section id="vision" class="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden bg-[#120d09] border-t border-white/10">
     <img
       src="https://media.discordapp.net/attachments/1005757707652960256/1505880164830154912/content.png?ex=6a0c3bb1&is=6a0aea31&hm=e6825c7239a4a9f2d99e137d6d29bb6ee545533f3efe75454faa07cdf82137a6&=&format=webp&quality=lossless&width=818&height=545"
       class="absolute inset-0 w-full h-full object-cover opacity-20"
@@ -591,10 +612,6 @@
           </div>
 
         </div>
-
-        <button onclick="closeStoryModal()" class="bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold">
-          Tutup Cerita
-        </button>
 
       </div>
     </div>
@@ -692,7 +709,7 @@
     </div>
   </div>
 
-  <footer class="relative py-24 px-6 bg-[#0b0705] border-t border-white/10 overflow-hidden">
+  <footer class="relative py-20 sm:py-24 px-4 sm:px-6 bg-[#0b0705] border-t border-white/10 overflow-hidden">
 
     <div class="absolute inset-0 opacity-20">
       <div class="absolute top-0 left-1/3 w-[400px] h-[400px] bg-[#c9964d]/20 blur-[140px]"></div>
@@ -800,6 +817,16 @@
     function closeStoryModal() {
       document.getElementById('storyModal').classList.remove('active');
     }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    window.addEventListener('resize', () => {
+      if(window.innerWidth >= 1280){
+        document.getElementById('mobileMenu').classList.add('hidden');
+      }
+    });
   </script>
 
 </body>
