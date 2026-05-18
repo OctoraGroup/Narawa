@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manggarai Raya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #0f0b08;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+      background: #0b0705;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, rgba(221,176,109,0.95), rgba(156,99,40,0.95));
+      border-radius: 999px;
+      border: 3px solid #0b0705;
+      box-shadow: 0 0 18px rgba(201,150,77,0.25);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to bottom, #f0c27b, #c9964d);
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.03);
+      border-left: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .modal {
+      display: none;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <section class="relative min-h-screen overflow-hidden flex items-center bg-black">
+    <img
+      src="https://media.discordapp.net/attachments/1005757707652960256/1505862500883894353/content.png?ex=6a0c2b3d&is=6a0ad9bd&hm=c89c690f0a57654d89ffb6cacbc3b0912503a84d05eccdb5f20b8de0ba77ce70&=&format=webp&quality=lossless&width=818&height=545"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <header class="absolute top-0 left-0 w-full z-50 px-6 pt-7">
+      <div class="max-w-7xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-6">
+
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/10 shadow-lg">
+            ✦
+          </div>
+
+          <div>
+            <h1 class="text-2xl font-black leading-none">MANGGARAI</h1>
+            <p class="text-[11px] tracking-[0.35em] text-white/70 mt-1">RAYA</p>
+          </div>
+        </div>
+
+        <div class="hidden lg:flex justify-center">
+          <nav class="flex items-center gap-2 bg-[#120d09]/70 border border-white/10 rounded-full px-3 py-3 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+            <a href="#" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Beranda</a>
+            <a href="#about" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Tentang</a>
+            <a href="#products" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Produk</a>
+            <a href="#visi-misi" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Visi & Misi</a>
+            <a href="#vision" class="px-5 py-2.5 rounded-full text-white/75 hover:text-white hover:bg-white/10 transition duration-300">Cerita Kami</a>
+          </nav>
+        </div>
+
+        <div class="hidden lg:flex justify-end">
+          <a href="https://wa.me/6281234567890" target="_blank" class="inline-flex items-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] text-white px-6 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(201,150,77,0.35)] hover:-translate-y-1 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.52 3.48A11.79 11.79 0 0012.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.8 11.8 0 005.74 1.46h.01c6.57 0 11.91-5.34 11.91-11.91a11.8 11.8 0 00-3.47-8.41zM12.08 21.3a9.37 9.37 0 01-4.77-1.3l-.34-.2-3.76.99 1-3.67-.22-.37a9.38 9.38 0 01-1.45-5.01c0-5.19 4.23-9.42 9.43-9.42a9.36 9.36 0 016.66 2.76 9.35 9.35 0 012.76 6.66c0 5.2-4.23 9.43-9.41 9.43zm5.17-7.03c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.63.14-.18.28-.72.9-.88 1.08-.16.18-.32.21-.6.07-.28-.14-1.17-.43-2.22-1.36-.82-.73-1.37-1.62-1.53-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.18-.28.28-.46.1-.18.05-.35-.02-.49-.07-.14-.63-1.53-.86-2.09-.23-.55-.47-.48-.63-.49h-.54c-.18 0-.49.07-.74.35-.26.28-.98.96-.98 2.33s1 2.7 1.14 2.88c.14.18 1.95 2.98 4.73 4.18.66.28 1.18.45 1.58.57.66.21 1.27.18 1.75.11.53-.08 1.64-.67 1.87-1.31.23-.65.23-1.2.16-1.31-.07-.12-.25-.19-.53-.33z"/>
+            </svg>
+            <span>Order via WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-36 lg:pt-40">
+      <div class="max-w-2xl">
+
+        <div class="inline-flex items-center gap-3 border border-white/20 bg-white/5 px-6 py-3 rounded-full text-sm mb-8">
+          ✦ PRODUK LOKAL • KUALITAS DUNIA
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-black leading-[0.95] mb-8">
+          Dari Manggarai Raya
+          <span class="block text-white/80">Untuk Dunia</span>
+        </h1>
+
+        <p class="text-lg text-white/80 leading-9 mb-12 max-w-2xl">
+          Kopi Manggarai Highland, Flores Palm Sugar, Tenun Manggarai dan produk UMKM terbaik dari Flores.
+        </p>
+
+        <div class="flex flex-wrap gap-5 mb-14">
+          <a href="#products" class="inline-flex items-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold shadow-xl hover:-translate-y-1 duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1 5h12m-9 0a1 1 0 100 2 1 1 0 000-2zm8 0a1 1 0 100 2 1 1 0 000-2"/>
+            </svg>
+            <span>Belanja Sekarang</span>
+          </a>
+
+          <button onclick="openModal()" class="inline-flex items-center gap-3 border border-white/20 bg-white/5 hover:bg-white/10 transition px-7 py-4 rounded-xl hover:-translate-y-1 duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L12 3l9 4.5M4.5 8.25V16.5L12 21l7.5-4.5V8.25M12 21V12"/>
+            </svg>
+            <span>Lihat Semua Produk</span>
+          </button>
+        </div>
+
+        <div class="max-w-3xl pb-14">
+
+          <div class="flex flex-col sm:flex-row items-stretch overflow-hidden rounded-[20px] border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_8px_25px_rgba(0,0,0,0.14)] mb-3">
+
+            <div class="flex-1 p-3 border-b sm:border-b-0 sm:border-r border-white/10 hover:bg-white/[0.03] transition duration-300">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-[#c9964d]/20 flex items-center justify-center text-[#ddb06d] text-sm shrink-0">
+                  ⭐
+                </div>
+
+                <div>
+                  <h3 class="text-xs font-semibold mb-1">
+                    Produk Asli
+                  </h3>
+
+                  <p class="text-white/55 text-[11px] leading-4">
+                    Produk pilihan langsung dari UMKM Flores.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-1 p-3 border-b sm:border-b-0 sm:border-r border-white/10 hover:bg-white/[0.03] transition duration-300">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-[#c9964d]/20 flex items-center justify-center text-[#ddb06d] text-sm shrink-0">
+                  🤝
+                </div>
+
+                <div>
+                  <h3 class="text-xs font-semibold mb-1">
+                    Dukung UMKM Lokal
+                  </h3>
+
+                  <p class="text-white/55 text-[11px] leading-4">
+                    Membantu ekonomi lokal berkembang.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-1 p-3 hover:bg-white/[0.03] transition duration-300">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl bg-[#c9964d]/20 flex items-center justify-center text-[#ddb06d] text-sm shrink-0">
+                  📦
+                </div>
+
+                <div>
+                  <h3 class="text-xs font-semibold mb-1">
+                    Pengiriman Aman
+                  </h3>
+
+                  <p class="text-white/55 text-[11px] leading-4">
+                    Dikemas premium dan aman sampai tujuan.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-32 px-6 bg-[#fffaf3] text-[#1a120c] overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+
+      <div class="relative">
+
+        <div class="grid grid-cols-[1.2fr_0.8fr] gap-5 items-stretch">
+
+          <div class="relative overflow-hidden rounded-[38px] shadow-[0_25px_70px_rgba(0,0,0,0.12)] group">
+            <img
+              src="https://media.discordapp.net/attachments/1005757707652960256/1505869699492352012/content.png?ex=6a0c31f2&is=6a0ae072&hm=e447dceb6c187c8a148ccb2872b7f219c2b4c918d98c92e171abdf7a9972e73f&=&format=webp&quality=lossless&width=818&height=545"
+              class="w-full h-[560px] object-cover group-hover:scale-105 transition duration-700"
+            />
+
+            <div class="absolute bottom-0 left-0 right-0 p-7 bg-gradient-to-t from-black/70 to-transparent">
+              <p class="text-white text-sm tracking-[0.3em] uppercase mb-2">
+                Manggarai Raya
+              </p>
+
+              <h3 class="text-3xl font-black text-white leading-tight">
+                Produk Lokal
+                <span class="block text-[#ddb06d]">Kualitas Premium</span>
+              </h3>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-5">
+
+            <div class="overflow-hidden rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] group">
+              <img
+                src="https://media.discordapp.net/attachments/1005757707652960256/1505870166419050526/content.png?ex=6a0c3261&is=6a0ae0e1&hm=db72f7a3ddedbe5a0620c6f4d397903a3407f280fd89b7e5184ec1337a5177f8&=&format=webp&quality=lossless&width=818&height=545"
+                class="w-full h-[270px] object-cover group-hover:scale-105 transition duration-700"
+              />
+            </div>
+
+            <div class="overflow-hidden rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] group">
+              <img
+                src="https://media.discordapp.net/attachments/1005757707652960256/1505870590764912700/content.png?ex=6a0c32c6&is=6a0ae146&hm=b9a8805990213d4d019bff4d02e3b60af8046c4113a7fc4896cc14c88e83bc8b&=&format=webp&quality=lossless&width=525&height=350"
+                class="w-full h-[270px] object-cover group-hover:scale-105 transition duration-700"
+              />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="relative z-10">
+        <p class="text-[#c9964d] uppercase tracking-[0.35em] text-sm mb-6 font-semibold">
+          Tentang Kami
+        </p>
+
+        <h2 class="text-5xl md:text-6xl xl:text-7xl font-black leading-[1.05] tracking-[-2px] mb-8 text-[#1b120c]">
+          Kekayaan Alam,
+          Budaya, dan
+          <span class="block text-[#c9964d]">
+            Cerita Flores
+          </span>
+        </h2>
+
+        <p class="text-[#5c4b3b] text-lg leading-9 max-w-2xl mb-10">
+          Manggarai Raya hadir untuk membantu produk lokal Flores dan Nusa Tenggara Timur dikenal lebih luas melalui visual premium, storytelling modern, dan pengalaman digital yang elegan.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+
+          <div class="rounded-[28px] bg-white border border-[#ead8bf] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+            <div class="w-14 h-14 rounded-2xl bg-[#fff4e6] flex items-center justify-center text-[#c9964d] mb-5 shadow-[0_10px_25px_rgba(201,150,77,0.12)]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-bold mb-3 text-[#1a120c]">
+              Produk Pilihan
+            </h3>
+
+            <p class="text-[#6b5745] leading-7 text-sm">
+              UMKM lokal pilihan dengan kualitas terbaik dari Flores.
+            </p>
+          </div>
+
+          <div class="rounded-[28px] bg-white border border-[#ead8bf] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+            <div class="w-14 h-14 rounded-2xl bg-[#fff4e6] flex items-center justify-center text-[#c9964d] mb-5 shadow-[0_10px_25px_rgba(201,150,77,0.12)]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.2 4.8L19 9l-3.5 3.2.8 4.8L12 14.8 7.7 17l.8-4.8L5 9l4.8-2.2L12 2z"/>
+              </svg>
+            </div>
+
+            <h3 class="text-xl font-bold mb-3 text-[#1a120c]">
+              Budaya Lokal
+            </h3>
+
+            <p class="text-[#6b5745] leading-7 text-sm">
+              Membawa identitas budaya dan cerita Manggarai ke dunia.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="products" class="py-32 px-6 bg-[#120d09]">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="flex items-end justify-between mb-16 flex-wrap gap-5">
+        <div>
+          <p class="text-[#c9964d] uppercase tracking-[0.3em] text-sm mb-4">Produk Unggulan</p>
+
+          <h2 class="text-5xl font-black leading-tight">
+            Produk Lokal
+            <span class="block text-[#c9964d]">Kualitas Premium</span>
+          </h2>
+        </div>
+
+        <button onclick="openModal()" class="bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold">
+          Lihat Semua Produk
+        </button>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-7">
+
+        <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876185891213482/content.png?ex=6a0c37fc&is=6a0ae67c&hm=bbb0fc96fd77ad8f5ff4274f26bf0b3390936a832c959d80f4a100036abc1bb8&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+
+          <div class="p-7">
+            <h3 class="text-2xl font-semibold mb-3">Kopi Manggarai Highland</h3>
+            <p class="text-[#d6a15f] text-lg mb-5">Rp 85.000</p>
+            <a href="https://wa.me/6281234567890" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876746715791480/content.png?ex=6a0c3882&is=6a0ae702&hm=50228130823d785d8001bd63a8d2013249e4da70a0c7cd931e849f183a2935e7&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+
+          <div class="p-7">
+            <h3 class="text-2xl font-semibold mb-3">Flores Palm Sugar</h3>
+            <p class="text-[#d6a15f] text-lg mb-5">Rp 45.000</p>
+            <a href="https://wa.me/6281234567890" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505877288569405481/content.png?ex=6a0c3903&is=6a0ae783&hm=7ab5f64941c18264250cc3aff22930a844947bd386f02552161be0122fb50e2b&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+
+          <div class="p-7">
+            <h3 class="text-2xl font-semibold mb-3">Madu Hutan Flores</h3>
+            <p class="text-[#d6a15f] text-lg mb-5">Rp 95.000</p>
+            <a href="https://wa.me/6281234567890" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="rounded-[32px] overflow-hidden bg-white/5 border border-white/10 hover:-translate-y-2 transition duration-500 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)]">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505878419391385610/content.png?ex=6a0c3a11&is=6a0ae891&hm=0896e93b2d19239a592e87d95f5c0b934e99786c5923369f5f1347855cdb514c&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[300px] object-cover" />
+
+          <div class="p-7">
+            <h3 class="text-2xl font-semibold mb-3">Kerajinan Anyaman</h3>
+            <p class="text-[#d6a15f] text-lg mb-5">Rp 150.000</p>
+            <a href="https://wa.me/6281234567890" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-28 px-6 bg-[#fffaf3] text-[#1a120c] border-t border-[#ead8bf]">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="mb-16 text-center">
+        <p class="text-[#c9964d] uppercase tracking-[0.3em] text-sm mb-5">
+          Keunggulan Kami
+        </p>
+
+        <h2 class="text-5xl font-black leading-tight mb-6">
+          Kenapa Belanja di
+          <span class="text-[#c9964d] block">Manggarai Raya?</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-5 gap-6">
+
+        <div class="bg-white rounded-[30px] p-7 border border-[#ead8bf] shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition duration-500">
+          <div class="w-16 h-16 rounded-xl bg-[#fff4e6] flex items-center justify-center text-3xl mb-6 text-[#c9964d]">⭐</div>
+          <h3 class="text-xl font-bold mb-3">Produk Berkualitas</h3>
+          <p class="text-[#6b5745] leading-7 text-sm">Produk pilihan UMKM terbaik dari Flores dan NTT.</p>
+        </div>
+
+        <div class="bg-white rounded-[30px] p-7 border border-[#ead8bf] shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition duration-500">
+          <div class="w-16 h-16 rounded-xl bg-[#fff4e6] flex items-center justify-center text-3xl mb-6 text-[#c9964d]">🤝</div>
+          <h3 class="text-xl font-bold mb-3">Dukung UMKM</h3>
+          <p class="text-[#6b5745] leading-7 text-sm">Membantu ekonomi lokal Manggarai dan Flores berkembang.</p>
+        </div>
+
+        <div class="bg-white rounded-[30px] p-7 border border-[#ead8bf] shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition duration-500">
+          <div class="w-16 h-16 rounded-xl bg-[#fff4e6] flex items-center justify-center text-3xl mb-6 text-[#c9964d]">📦</div>
+          <h3 class="text-xl font-bold mb-3">Pengiriman Aman</h3>
+          <p class="text-[#6b5745] leading-7 text-sm">Produk dikemas premium dan aman sampai tujuan.</p>
+        </div>
+
+        <div class="bg-white rounded-[30px] p-7 border border-[#ead8bf] shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition duration-500">
+          <div class="w-16 h-16 rounded-xl bg-[#fff4e6] flex items-center justify-center text-3xl mb-6 text-[#c9964d]">💳</div>
+          <h3 class="text-xl font-bold mb-3">Pembayaran Mudah</h3>
+          <p class="text-[#6b5745] leading-7 text-sm">Praktis melalui transfer dan WhatsApp order.</p>
+        </div>
+
+        <div class="bg-white rounded-[30px] p-7 border border-[#ead8bf] shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition duration-500">
+          <div class="w-16 h-16 rounded-xl bg-[#fff4e6] flex items-center justify-center text-3xl mb-6 text-[#c9964d]">😊</div>
+          <h3 class="text-xl font-bold mb-3">Layanan Ramah</h3>
+          <p class="text-[#6b5745] leading-7 text-sm">Pelayanan cepat dan ramah untuk semua pelanggan.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="visi-misi" class="py-28 px-6 bg-[#fffaf3] text-[#1a120c] border-t border-[#ead8bf] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-20">
+        <p class="text-[#c9964d] uppercase tracking-[0.3em] text-sm mb-5">
+          Visi & Misi
+        </p>
+
+        <h2 class="text-5xl md:text-6xl font-black leading-tight mb-7">
+          Membawa Produk Lokal
+          <span class="block text-[#c9964d]">Lebih Dikenal Dunia</span>
+        </h2>
+
+        <p class="max-w-3xl mx-auto text-[#6b5745] text-lg leading-9">
+          Manggarai Raya hadir untuk membantu UMKM Flores berkembang melalui visual modern, pengalaman digital premium, dan storytelling budaya yang elegan.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+
+        <div class="relative overflow-hidden rounded-[36px] bg-white border border-[#ead8bf] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+
+          <div class="absolute top-0 right-0 w-[220px] h-[220px] bg-[#ddb06d]/20 blur-[100px]"></div>
+
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-[#fff4e6] flex items-center justify-center text-[#c9964d] text-3xl mb-8">
+              ✨
+            </div>
+
+            <p class="text-[#c9964d] uppercase tracking-[0.3em] text-sm mb-5 font-semibold">
+              Visi Kami
+            </p>
+
+            <h3 class="text-4xl font-black leading-tight mb-6">
+              Menjadi Jembatan
+              Produk Lokal Flores
+            </h3>
+
+            <p class="text-[#6b5745] leading-9 text-lg">
+              Membawa produk UMKM Manggarai dan Flores agar dikenal lebih luas melalui platform digital modern dengan identitas budaya yang tetap kuat.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-[36px] bg-[#120d09] border border-white/10 p-10 text-white shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
+
+          <img
+            src="https://media.discordapp.net/attachments/1005757707652960256/1505880164830154912/content.png?ex=6a0c3bb1&is=6a0aea31&hm=e6825c7239a4a9f2d99e137d6d29bb6ee545533f3efe75454faa07cdf82137a6&=&format=webp&quality=lossless&width=818&height=545"
+            class="absolute inset-0 w-full h-full object-cover opacity-10"
+          />
+
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-[#ddb06d] text-3xl mb-8 backdrop-blur-xl">
+              🚀
+            </div>
+
+            <p class="text-[#ddb06d] uppercase tracking-[0.3em] text-sm mb-5 font-semibold">
+              Misi Kami
+            </p>
+
+            <div class="space-y-5">
+
+              <div class="flex gap-4">
+                <div class="w-2 h-2 rounded-full bg-[#ddb06d] mt-3 shrink-0"></div>
+                <p class="text-white/75 leading-8">
+                  Mendukung perkembangan UMKM lokal Flores.
+                </p>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-2 h-2 rounded-full bg-[#ddb06d] mt-3 shrink-0"></div>
+                <p class="text-white/75 leading-8">
+                  Memperkenalkan budaya dan produk lokal ke pasar digital modern.
+                </p>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-2 h-2 rounded-full bg-[#ddb06d] mt-3 shrink-0"></div>
+                <p class="text-white/75 leading-8">
+                  Menghadirkan pengalaman visual premium dan elegan.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="vision" class="relative py-32 px-6 overflow-hidden bg-[#120d09] border-t border-white/10">
+    <img
+      src="https://media.discordapp.net/attachments/1005757707652960256/1505880164830154912/content.png?ex=6a0c3bb1&is=6a0aea31&hm=e6825c7239a4a9f2d99e137d6d29bb6ee545533f3efe75454faa07cdf82137a6&=&format=webp&quality=lossless&width=818&height=545"
+      class="absolute inset-0 w-full h-full object-cover opacity-20"
+    />
+
+    <div class="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+
+      <div>
+        <p class="text-[#c9964d] uppercase tracking-[0.3em] text-sm mb-5">
+          Cerita Kami
+        </p>
+
+        <h2 class="text-5xl md:text-6xl font-black leading-tight mb-8">
+          Membawa Cerita
+          <span class="block text-[#c9964d]">Flores ke Dunia</span>
+        </h2>
+
+        <p class="text-white/70 text-lg leading-9 mb-10 max-w-2xl">
+          Kami percaya setiap produk lokal memiliki cerita, budaya, dan kerja keras masyarakat Flores yang layak dikenal lebih luas.
+        </p>
+
+        <button onclick="openStoryModal()" class="bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold shadow-xl hover:-translate-y-1 duration-300">
+          Jelajahi Cerita Kami
+        </button>
+      </div>
+
+      <div>
+        <img
+          src="https://media.discordapp.net/attachments/1005757707652960256/1505881131030151358/content.png?ex=6a0c3c97&is=6a0aeb17&hm=3f0553ba10e440386421b1cbc3f03e323d6ce37d6af2e6331c8912f6a14f304a&=&format=webp&quality=lossless&width=818&height=545"
+          class="rounded-[36px] shadow-[0_25px_70px_rgba(0,0,0,0.35)] w-full object-cover"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <div id="storyModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-md p-6">
+    <div class="bg-[#120d09] border border-white/10 rounded-[34px] p-10 max-w-2xl w-full relative overflow-hidden">
+
+      <img
+        src="https://media.discordapp.net/attachments/1005757707652960256/1505880164830154912/content.png?ex=6a0c3bb1&is=6a0aea31&hm=e6825c7239a4a9f2d99e137d6d29bb6ee545533f3efe75454faa07cdf82137a6&=&format=webp&quality=lossless&width=818&height=545"
+        class="absolute inset-0 w-full h-full object-cover opacity-10"
+      />
+
+      <div class="relative z-10">
+
+        <button onclick="closeStoryModal()" class="absolute top-0 right-0 w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 transition">
+          ✕
+        </button>
+
+        <p class="text-[#c9964d] uppercase tracking-[0.3em] text-sm mb-5">
+          Cerita Kami
+        </p>
+
+        <h2 class="text-5xl font-black leading-tight mb-7">
+          Dari Flores,
+          <span class="block text-[#c9964d]">Untuk Dunia</span>
+        </h2>
+
+        <p class="text-white/70 leading-9 text-lg mb-10">
+          Manggarai Raya lahir dari semangat untuk membawa cerita, budaya, dan hasil alam Flores agar dikenal lebih luas melalui pengalaman digital modern yang elegan dan premium.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4 mb-10">
+
+          <div class="bg-white/5 border border-white/10 rounded-[24px] p-5 backdrop-blur-xl">
+            <div class="text-[#ddb06d] text-2xl mb-4">☕</div>
+            <h3 class="font-semibold mb-2">Kopi Flores</h3>
+            <p class="text-white/60 text-sm leading-6">
+              Aroma khas pegunungan Manggarai.
+            </p>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-[24px] p-5 backdrop-blur-xl">
+            <div class="text-[#ddb06d] text-2xl mb-4">🌿</div>
+            <h3 class="font-semibold mb-2">Alam Lokal</h3>
+            <p class="text-white/60 text-sm leading-6">
+              Hasil bumi alami dari Flores.
+            </p>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-[24px] p-5 backdrop-blur-xl">
+            <div class="text-[#ddb06d] text-2xl mb-4">✨</div>
+            <h3 class="font-semibold mb-2">Budaya</h3>
+            <p class="text-white/60 text-sm leading-6">
+              Cerita dan identitas Manggarai.
+            </p>
+          </div>
+
+        </div>
+
+        <button onclick="closeStoryModal()" class="bg-[#c9964d] hover:bg-[#ddb06d] transition px-7 py-4 rounded-xl font-semibold">
+          Tutup Cerita
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="productsModal" class="modal fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-md p-6">
+    <div class="bg-[#120d09] border border-white/10 rounded-[34px] p-10 max-w-3xl w-full relative">
+
+      <button onclick="closeModal()" class="absolute top-5 right-5 w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 transition">
+        ✕
+      </button>
+
+      <h2 class="text-5xl font-black mb-10">
+        Produk UMKM
+        <span class="block text-[#c9964d]">Manggarai Raya</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6 max-h-[70vh] overflow-y-auto pr-2">
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876185891213482/content.png?ex=6a0c37fc&is=6a0ae67c&hm=bbb0fc96fd77ad8f5ff4274f26bf0b3390936a832c959d80f4a100036abc1bb8&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Kopi Manggarai Highland</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 85.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Kopi%20Manggarai" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505876746715791480/content.png?ex=6a0c3882&is=6a0ae702&hm=50228130823d785d8001bd63a8d2013249e4da70a0c7cd931e849f183a2935e7&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Flores Palm Sugar</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 45.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Flores%20Palm%20Sugar" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505890900889567375/content.png?ex=6a0c45b0&is=6a0af430&hm=e46cde6c4f393c77dfccdd7fcec2e7b54f4dd4f982e6bb32befcab9442dc88b5&=&format=webp&quality=lossless&width=818&height=544" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Madu Hutan Flores</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 95.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Madu%20Hutan%20Flores" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505889681349283942/content.png?ex=6a0c448e&is=6a0af30e&hm=45f4fb972cfa87711892af56bfc4465660c4b9e9494c598c78430721b18a746a&=&format=webp&quality=lossless&width=526&height=350" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Kemiri Flores</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 95.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Kemiri%20Flores" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505889931489443870/content.png?ex=6a0c44c9&is=6a0af349&hm=a5074157d72455a230f3a862fce891cb570631a90c337e7b787043ace4b9ea8c&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Kerajinan Anyaman Lokal</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 150.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Kerajinan%20Anyaman" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505890122195795988/content.png?ex=6a0c44f7&is=6a0af377&hm=b3517768adbe6f8cbf7eeb99feb736509e7f890aa8e44814de6c51126fed1b33&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Cokelat Flores Premium</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 120.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Cokelat%20Flores" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505890928408137889/content.png?ex=6a0c45b7&is=6a0af437&hm=bedf370ad78aa6defde534c30b5cf54fce23e7785611b7d589d8d99208813405&=&format=webp&quality=lossless&width=818&height=545" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Kacang Mete Flores</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 135.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Kacang%20Mete%20Flores" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-[28px] overflow-hidden backdrop-blur-xl">
+          <img src="https://media.discordapp.net/attachments/1005757707652960256/1505891889524506674/content.png?ex=6a0c469c&is=6a0af51c&hm=0c53cd46ec76e16ca0ccda970cf6bea3c4aa057c89d34ea3f196e623890759d4&=&format=webp&quality=lossless&width=818&height=544" class="w-full h-[220px] object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-3">Paket Oleh-Oleh Flores</h3>
+            <p class="text-[#d6a15f] mb-5">Rp 250.000</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Paket%20Oleh-Oleh%20Flores" target="_blank" class="block text-center bg-[#c9964d] hover:bg-[#ddb06d] transition py-3 rounded-xl font-semibold">Pesan via WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <footer class="relative py-24 px-6 bg-[#0b0705] border-t border-white/10 overflow-hidden">
+
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-0 left-1/3 w-[400px] h-[400px] bg-[#c9964d]/20 blur-[140px]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-start pb-14 border-b border-white/10">
+
+        <div>
+          <div class="flex items-center gap-4 mb-7">
+            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ddb06d] text-2xl backdrop-blur-xl shadow-lg">
+              ✦
+            </div>
+
+            <div>
+              <h2 class="text-4xl font-black leading-none tracking-tight">
+                MANGGARAI RAYA
+              </h2>
+              <p class="text-white/40 tracking-[0.35em] text-xs mt-2 uppercase">
+                Flores Local Product
+              </p>
+            </div>
+          </div>
+
+          <p class="text-white/60 leading-9 max-w-2xl text-lg mb-10">
+            Membawa produk UMKM terbaik dari Manggarai dan Flores ke pengalaman digital modern dengan visual premium dan storytelling elegan.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="group px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#c9964d]/40 hover:bg-[#c9964d]/10 transition duration-300 backdrop-blur-xl">
+              <span class="text-white/80 group-hover:text-white transition">Instagram</span>
+            </a>
+
+            <a href="#" class="group px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#c9964d]/40 hover:bg-[#c9964d]/10 transition duration-300 backdrop-blur-xl">
+              <span class="text-white/80 group-hover:text-white transition">TikTok</span>
+            </a>
+
+            <a href="#" class="group px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#c9964d]/40 hover:bg-[#c9964d]/10 transition duration-300 backdrop-blur-xl">
+              <span class="text-white/80 group-hover:text-white transition">YouTube</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+
+          <div class="rounded-[28px] bg-white/5 border border-white/10 p-7 backdrop-blur-xl">
+            <p class="text-[#ddb06d] text-sm tracking-[0.3em] uppercase mb-5">
+              Navigasi
+            </p>
+
+            <div class="flex flex-col gap-4">
+              <a href="#" class="text-white/65 hover:text-white transition">Beranda</a>
+              <a href="#about" class="text-white/65 hover:text-white transition">Tentang Kami</a>
+              <a href="#products" class="text-white/65 hover:text-white transition">Produk Lokal</a>
+              <a href="#vision" class="text-white/65 hover:text-white transition">Cerita Kami</a>
+            </div>
+          </div>
+
+          <div class="rounded-[28px] bg-white/5 border border-white/10 p-7 backdrop-blur-xl">
+            <p class="text-[#ddb06d] text-sm tracking-[0.3em] uppercase mb-5">
+              Legal
+            </p>
+
+            <div class="flex flex-col gap-4">
+              <a href="#" class="text-white/65 hover:text-white transition">Terms of Service</a>
+              <a href="#" class="text-white/65 hover:text-white transition">Policy Service</a>
+              <a href="#" class="text-white/65 hover:text-white transition">Cookie Policy</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5 pt-10">
+        <p class="text-white/40 text-sm">
+          © 2026 Manggarai Raya. All rights reserved.
+        </p>
+
+        <a href="https://wa.me/6281234567890" target="_blank" class="inline-flex items-center gap-3 bg-[#c9964d] hover:bg-[#ddb06d] px-6 py-3 rounded-2xl font-semibold shadow-[0_10px_30px_rgba(201,150,77,0.35)] hover:-translate-y-1 transition duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.79 11.79 0 0012.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.8 11.8 0 005.74 1.46h.01c6.57 0 11.91-5.34 11.91-11.91a11.8 11.8 0 00-3.47-8.41z"/>
+          </svg>
+          <span>Order via WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    function openModal() {
+      document.getElementById('productsModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('productsModal').classList.remove('active');
+    }
+
+    function openStoryModal() {
+      document.getElementById('storyModal').classList.add('active');
+    }
+
+    function closeStoryModal() {
+      document.getElementById('storyModal').classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>
